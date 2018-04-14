@@ -15,17 +15,19 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private fileChooser: FileChooser,
-    private filePath: FilePath,
+    // private filePath: FilePath,
     private media: Media
   ) {}
   filechooser() {
     this.fileChooser
       .open()
       .then(uri => {
-        (<any>window).filePath.resolveNativePath(
+        (<any>window).FilePath.resolveNativePath(
           uri,
           result => {
-            this.audioPlay();
+            alert("result" + result);
+            alert("uri" + uri);
+            this.audioPlay(result);
           },
           err => {
             alert(err);
@@ -34,8 +36,11 @@ export class HomePage {
       })
       .catch(e => console.log(e));
   }
-  audioPlay() {
+  audioPlay(res) {
+    this.nativePath = res;
+    alert(this.nativePath)
     let pathalone = this.nativePath.substring(8);
+    alert("pathalone" + pathalone);
     this.file = this.media.create(pathalone);
     this.file.play();
   }
