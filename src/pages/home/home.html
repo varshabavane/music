@@ -1,14 +1,35 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Music player
     </ion-title>
   </ion-navbar>
 </ion-header>
+<ion-fab center middle>
+  <button color="danger" ion-fab="" class="fab fab-md fab-md-danger fab-close-active" ion-icon class="fab-close-icon icon-md ion-md-close"
+    name="close">
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+    <span class="button-inner">
+      <ion-icon name="menu" role="img" class="icon-md ion-android-menu"></ion-icon>
+
+    </span>
+    <div class="button-effect" style="transform: translate3d(-14px, -16px, 0px) scale(1);
+       height: 102px; width: 102px; opacity: 0; transition: transform 301ms, opacity 211ms 90ms;">
+    </div>
+  </button>
+
+  <ion-fab-list side="top">
+    <button color="primary" ion-fab="" class="fab fab-ios fab-ios-dark fab-in-list" (click)="filechooser()">click</button>
+  </ion-fab-list>
+  <ion-fab-list side="bottom">
+    <button color="secondary" ion-fab="" class="fab fab-ios fab-ios-primary fab-in-list" (click)="playaudio()">play</button>
+  </ion-fab-list>
+  <ion-fab-list side="left">
+    <button color="light" ion-fab="" class="fab fab-ios fab-ios-light fab-in-list" (click)="audiostop()">pause</button>
+  </ion-fab-list>
+  <ion-fab-list side="right">
+    <button color="dark" ion-fab="" class="fab fab-ios fab-ios-secondary fab-in-list" (click)="audiopause()">next
+
+    </button>
+  </ion-fab-list>
+</ion-fab>
